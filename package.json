@@ -1,0 +1,21 @@
+{
+  "name": "keychain-photobooth",
+  "version": "1.0.0",
+  "description": "Premium Photo Booth Rentals in Ontario - Keychain Photobooth",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Static site - no build required'"
+  },
+  "keywords": [
+    "photo booth",
+    "photobooth",
+    "Ontario",
+    "Toronto",
+    "wedding",
+    "corporate events",
+    "360 photo booth",
+    "event entertainment"
+  ],
+  "author": "Keychain Photobooth",
+  "license": "ISC"
+}

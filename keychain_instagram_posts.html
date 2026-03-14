@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keychain Photobooth — Instagram Posts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B0000;
+    --crimson-light: #A50000;
+    --cream: #FAFAF8;
+    --off-white: #F5F3EF;
+    --black: #0A0A0A;
+    --gold: #C9A84C;
+    --pearl: #F0EDE8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    font-family: 'Montserrat', sans-serif;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  h1 {
+    color: var(--crimson);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  /*  POST WRAPPER  */
+  .post {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* 
+     POST 1 — "THE KEEPSAKE" (White)
+   */
+  .post-1 {
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .post-1 .ornament-top {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    white-space: nowrap;
+  }
+
+  .post-1 .ornament-top span {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--crimson);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .post-1 .ornament-top .line {
+    width: 80px;
+    height: 1px;
+    background: var(--crimson);
+  }
+
+  .post-1 .ornament-top .diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--crimson);
+    transform: rotate(45deg);
+  }
+
+  .post-1 .center-text {
+    text-align: center;
+    z-index: 2;
+  }
+
+  .post-1 .eyebrow {
+    font-size: 11px;
+    letter-spacing: 8px;
+    color: var(--crimson);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .post-1 .headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    font-weight: 300;
+    color: var(--crimson);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+  }
+
+  .post-1 .headline em {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .post-1 .divider {
+    width: 1px;
+    height: 60px;
+    background: var(--crimson);
+    margin: 0 auto 32px;
+    opacity: 0.4;
+  }
+
+  .post-1 .body-text {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 2;
+    opacity: 0.7;
+  }
+
+  .post-1 .logo-bottom {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+  }
+
+  .post-1 .logo-bottom .logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 8px;
+    color: var(--crimson);
+    text-transform: uppercase;
+  }
+
+  .post-1 .logo-bottom .logo-sub {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--crimson);
+    opacity: 0.6;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  /* Corner decoration */
+  .corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: var(--crimson);
+    border-style: solid;
+    opacity: 0.25;
+  }
+  .corner-tl { top: 30px; left: 30px; border-width: 1px 0 0 1px; }
+  .corner-tr { top: 30px; right: 30px; border-width: 1px 1px 0 0; }
+  .corner-bl { bottom: 30px; left: 30px; border-width: 0 0 1px 1px; }
+  .corner-br { bottom: 30px; right: 30px; border-width: 0 1px 1px 0; }
+
+  /* 
+     POST 2 — "THE MOMENT" (Black)
+   */
+  .post-2 {
+    background: var(--black);
+  }
+
+  .post-2 .bg-text {
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 320px;
+    font-weight: 700;
+    color: rgba(139,0,0,0.06);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: -10px;
+  }
+
+  .post-2 .content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 70px 80px;
+  }
+
+  .post-2 .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .post-2 .logo-mark {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-2 .logo-mark .k-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    letter-spacing: 10px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .post-2 .logo-mark .k-sub {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .post-2 .tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid var(--crimson);
+    padding: 8px 16px;
+    opacity: 0.9;
+  }
+
+  .post-2 .middle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-2 .big-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 104px;
+    font-weight: 300;
+    color: var(--crimson);
+    line-height: 0.92;
+    letter-spacing: -3px;
+    max-width: 800px;
+    margin-bottom: 50px;
+  }
+
+  .post-2 .big-quote em {
+    font-style: italic;
+    color: var(--crimson);
+  }
+
+  .post-2 .accent-line {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .post-2 .accent-line .bar {
+    width: 50px;
+    height: 1px;
+    background: var(--crimson);
+  }
+
+  .post-2 .accent-line .sub {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .post-2 .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .post-2 .cta {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .post-2 .url {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* 
+     POST 3 — "THE PEARL" (White, product-focused)
+   */
+  .post-3 {
+    background: var(--off-white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .post-3 .left-panel {
+    background: var(--crimson);
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .post-3 .left-panel .logo-w {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 6px;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .post-3 .left-panel .logo-w small {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .post-3 .left-panel .main-copy {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .post-3 .left-panel .eyebrow-w {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .post-3 .left-panel h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--crimson);
+    line-height: 0.95;
+    letter-spacing: -2px;
+    margin-bottom: 36px;
+  }
+
+  .post-3 .left-panel h2 em {
+    font-style: italic;
+  }
+
+  .post-3 .left-panel p {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.65);
+    line-height: 2;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .post-3 .left-panel .bottom-tag {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .post-3 .right-panel {
+    background: var(--off-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    position: relative;
+  }
+
+  .post-3 .right-panel .product-circle {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff 0%, #E8E4DF 60%, #D5D0CA 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.06);
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .post-3 .right-panel .product-circle::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(139,0,0,0.15);
+  }
+
+  .post-3 .right-panel .pearl-icon {
+    font-size: 80px;
+    opacity: 0.3;
+  }
+
+  .post-3 .right-panel .product-label {
+    text-align: center;
+  }
+
+  .post-3 .right-panel .product-label .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--crimson);
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .post-3 .right-panel .product-label .desc {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: rgba(139,0,0,0.5);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* 
+     POST 4 — "THE INVITATION" (Crimson)
+   */
+  .post-4 {
+    background: var(--crimson);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .post-4 .noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+  }
+
+  .post-4 .content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .post-4 .top-badge {
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 12px 30px;
+    font-size: 9px;
+    letter-spacing: 6px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .post-4 .big-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 280px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    letter-spacing: -10px;
+    pointer-events: none;
+  }
+
+  .post-4 .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+  }
+
+  .post-4 .ornament {
+    color: rgba(255,255,255,0.4);
+    font-size: 24px;
+    letter-spacing: 8px;
+    margin-bottom: 40px;
+  }
+
+  .post-4 .main-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 112px;
+    font-weight: 300;
+    color: var(--crimson);
+    line-height: 0.88;
+    letter-spacing: -4px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .post-4 .main-headline em {
+    font-style: italic;
+    display: block;
+  }
+
+  .post-4 .sub-line {
+    font-size: 10px;
+    letter-spacing: 8px;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 50px;
+  }
+
+  .post-4 .cta-button {
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 18px 60px;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .post-4 .bottom-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    letter-spacing: 12px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  /* 
+     POST 5 — "THE SERVICES" (White)
+   */
+  .post-5 {
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+    position: relative;
+  }
+
+  .post-5 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 80px;
+  }
+
+  .post-5 .logo-mark {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-5 .logo-mark .k {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    letter-spacing: 8px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .post-5 .logo-mark .ksub {
+    font-size: 8px;
+    letter-spacing: 5px;
+    color: rgba(139,0,0,0.5);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .post-5 .header .eyebrow {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: rgba(139,0,0,0.5);
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: right;
+    line-height: 2;
+  }
+
+  .post-5 .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--crimson);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 60px;
+  }
+
+  .post-5 .section-title em {
+    font-style: italic;
+  }
+
+  .post-5 .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    flex: 1;
+  }
+
+  .post-5 .service-item {
+    padding: 36px;
+    border: 1px solid rgba(139,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .post-5 .service-item:nth-child(1) { background: rgba(139,0,0,0.04); }
+  .post-5 .service-item:nth-child(2) { background: rgba(139,0,0,0.02); }
+  .post-5 .service-item:nth-child(3) { background: rgba(139,0,0,0.02); }
+  .post-5 .service-item:nth-child(4) { background: rgba(139,0,0,0.04); }
+
+  .post-5 .service-item .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    color: rgba(139,0,0,0.15);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .post-5 .service-item .s-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    color: var(--crimson);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 0;
+  }
+
+  .post-5 .service-item .s-desc {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: rgba(139,0,0,0.5);
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.8;
+  }
+
+  .post-5 .footer-url {
+    position: absolute;
+    bottom: 50px;
+    right: 80px;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: rgba(139,0,0,0.4);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* 
+     POST 6 — "THE TESTIMONIAL" (Black)
+   */
+  .post-6 {
+    background: #080808;
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .post-6 .bg-stripe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--crimson);
+  }
+
+  .post-6 .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .post-6 .logo-white {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 8px;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .post-6 .logo-white small {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .post-6 .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 200px;
+    color: var(--crimson);
+    line-height: 0.6;
+    font-weight: 700;
+    opacity: 0.6;
+  }
+
+  .post-6 .middle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+  }
+
+  .post-6 .testimonial {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 76px;
+    font-weight: 300;
+    color: var(--crimson);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 48px;
+    font-style: italic;
+  }
+
+  .post-6 .attr {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .post-6 .attr .bar {
+    width: 40px;
+    height: 1px;
+    background: var(--crimson);
+  }
+
+  .post-6 .attr .name {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .post-6 .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .post-6 .stars {
+    display: flex;
+    gap: 6px;
+  }
+
+  .post-6 .stars span {
+    width: 8px;
+    height: 8px;
+    background: var(--crimson);
+    transform: rotate(45deg);
+    display: block;
+  }
+
+  .post-6 .url {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+  }
+
+  .label {
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 16px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<h1>Keychain Photobooth</h1>
+<p class="subtitle">Instagram Post Collection</p>
+
+<!-- POST 1: THE KEEPSAKE -->
+<div>
+<div class="post post-1">
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <div class="ornament-top">
+    <div class="line"></div>
+    <div class="diamond"></div>
+    <span>Canada</span>
+    <div class="diamond"></div>
+    <div class="line"></div>
+  </div>
+
+  <div class="center-text">
+    <div class="eyebrow">Introducing</div>
+    <div class="headline">The<br><em>Keepsake</em></div>
+    <div class="divider"></div>
+    <div class="body-text">
+      Your moment.<br>Your memory.<br>Yours forever.
+    </div>
+  </div>
+
+  <div class="logo-bottom">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <div class="logo-name">Keychain</div>
+      <div class="logo-sub">Photobooth · Canada</div>
+    </div>
+  </div>
+</div>
+<p class="label">Post 01 — The Keepsake</p>
+</div>
+
+<!-- POST 2: THE MOMENT -->
+<div>
+<div class="post post-2">
+  <div class="bg-text">KC</div>
+  <div class="content">
+    <div class="top-row">
+      <div class="logo-mark">
+        <div class="k-name">Keychain</div>
+        <div class="k-sub">Photobooth · Canada</div>
+      </div>
+      <div class="tag">New Experience</div>
+    </div>
+
+    <div class="middle">
+      <div class="big-quote">
+        Every photo<br>deserves to be<br><em>remembered.</em>
+      </div>
+      <div class="accent-line">
+        <div class="bar"></div>
+        <div class="sub">Pearl · Gold · Luxury</div>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="cta">keychainbooth.ca</div>
+      <div class="url">Book Now</div>
+    </div>
+  </div>
+</div>
+<p class="label">Post 02 — The Moment</p>
+</div>
+
+<!-- POST 3: THE PEARL (Split layout) -->
+<div>
+<div class="post post-3">
+  <div class="left-panel">
+    <div class="logo-w">
+      Keychain
+      <small>Photobooth</small>
+    </div>
+    <div class="main-copy">
+      <div class="eyebrow-w">Pearl Collection</div>
+      <h2>Wear<br><em>Your</em><br>Story.</h2>
+      <p>
+        Custom photo keychains.<br>
+        Printed at your event.<br>
+        Treasured forever.
+      </p>
+    </div>
+    <div class="bottom-tag">keychainbooth.ca</div>
+  </div>
+  <div class="right-panel">
+    <div class="product-circle">
+      <div style="text-align:center; opacity:0.25;">
+        <div style="font-size:100px;"></div>
+        <div style="font-size:14px; letter-spacing:4px; color: #8B0000; margin-top:-20px; font-family:'Montserrat',sans-serif; font-weight:500;">PEARL</div>
+      </div>
+    </div>
+    <div class="product-label">
+      <div class="title">Pearl Keychain</div>
+      <div class="desc">Photo · Printed · Personalized</div>
+    </div>
+  </div>
+</div>
+<p class="label">Post 03 — The Pearl</p>
+</div>
+
+<!-- POST 4: THE INVITATION -->
+<div>
+<div class="post post-4">
+  <div class="noise"></div>
+  <div class="content">
+    <div class="top-badge">Keychain Photobooth · Canada</div>
+    <div class="big-number">∞</div>
+    <div class="center-content">
+      <div class="ornament">· · ·</div>
+      <div class="main-headline">
+        Capture
+        <em>the magic.</em>
+      </div>
+      <div class="sub-line">Open-Air · Instabooth · Portrait · Magnet · 360°</div>
+      <div class="cta-button">Book Your Date</div>
+    </div>
+    <div class="bottom-logo">Keychainbooth.ca</div>
+  </div>
+</div>
+<p class="label">Post 04 — The Invitation</p>
+</div>
+
+<!-- POST 5: THE SERVICES -->
+<div>
+<div class="post post-5">
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <div class="header">
+    <div class="logo-mark">
+      <div class="k">Keychain</div>
+      <div class="ksub">Photobooth · Canada</div>
+    </div>
+    <div class="eyebrow">
+      Five experiences.<br>One extraordinary<br>occasion.
+    </div>
+  </div>
+
+  <div class="section-title">
+    Our<br><em>Services.</em>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="num">01</div>
+      <div class="s-name">Open-Air<br>Photobooth</div>
+      <div class="s-desc">Unlimited guests · Open setup</div>
+    </div>
+    <div class="service-item">
+      <div class="num">02</div>
+      <div class="s-name">Instabooth<br>Photobooth</div>
+      <div class="s-desc">Instant prints · On the spot</div>
+    </div>
+    <div class="service-item">
+      <div class="num">03</div>
+      <div class="s-name">Portrait<br>Photobooth</div>
+      <div class="s-desc">Studio quality · Timeless</div>
+    </div>
+    <div class="service-item">
+      <div class="num">04</div>
+      <div class="s-name">360° Video<br>Photobooth</div>
+      <div class="s-desc">Cinematic · Immersive</div>
+    </div>
+  </div>
+
+  <div class="footer-url">keychainbooth.ca</div>
+</div>
+<p class="label">Post 05 — The Services</p>
+</div>
+
+<!-- POST 6: THE TESTIMONIAL -->
+<div>
+<div class="post post-6">
+  <div class="bg-stripe"></div>
+
+  <div class="top">
+    <div class="logo-white">
+      Keychain
+      <small>Photobooth · Canada</small>
+    </div>
+    <div class="quote-mark">"</div>
+  </div>
+
+  <div class="middle">
+    <div class="testimonial">
+      Perfection isn't optional — it's the only standard we accept.
+    </div>
+    <div class="attr">
+      <div class="bar"></div>
+      <div class="name">Keychain Photobooth · Our Promise</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="stars">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="url">keychainbooth.ca</div>
+  </div>
+</div>
+<p class="label">Post 06 — The Promise</p>
+</div>
+
+</body>
+</html>

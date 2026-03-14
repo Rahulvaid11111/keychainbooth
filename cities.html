@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cities We Serve | Keychain Photobooth</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B0000;
+    --crimson-light: #A50000;
+    --cream: #FAFAF8;
+    --off-white: #F5F3EF;
+    --black: #0A0A0A;
+    --gold: #C9A84C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(250, 250, 248, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+    padding: 2.5px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon { width: 120px; height: 120px; }
+  .nav-logo-text { display: none; }
+
+  .nav-logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 6px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .nav-logo-sub {
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: rgba(139, 0, 0, 0.5);
+    margin-top: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--crimson); }
+
+  .nav-cta {
+    background: var(--crimson);
+    color: white !important;
+    padding: 12px 30px;
+    border: none;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover { background: var(--crimson-light); }
+
+  .nav-ctas {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .nav-cta {
+    background: var(--crimson);
+    color: white !important;
+    padding: 12px 24px;
+    border: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: var(--crimson-light);
+  }
+
+  .nav-cta-secondary {
+    background: transparent;
+    color: var(--crimson) !important;
+    border: 1px solid var(--crimson);
+  }
+
+  .nav-cta-secondary:hover {
+    background: var(--crimson);
+    color: white !important;
+  }
+
+
+  .hero {
+    margin-top: 80px;
+    background: var(--crimson);
+    padding: 120px 80px 80px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 em { font-style: italic; color: white;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .cities-section {
+    background: var(--cream);
+    padding: 100px 80px;
+  }
+
+  .section-intro {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    text-align: center;
+  }
+
+  .section-intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--crimson);
+    margin-bottom: 24px;
+  }
+
+  .section-intro h2 em { font-style: italic; }
+
+  .section-intro p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.7);
+  }
+
+  .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto 60px;
+  }
+
+  .city-card {
+    background: white;
+    padding: 30px 24px;
+    text-align: center;
+    border: 1px solid rgba(139, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+
+  .city-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(139, 0, 0, 0.1);
+    border-color: var(--crimson);
+  }
+
+  .city-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--crimson);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .city-region {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(10, 10, 10, 0.5);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .featured-cities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto 80px;
+  }
+
+  .featured-card {
+    background: white;
+    padding: 50px 40px;
+    border-left: 4px solid var(--crimson);
+    transition: all 0.3s ease;
+  }
+
+  .featured-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(139, 0, 0, 0.1);
+  }
+
+  .featured-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+
+  .featured-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--crimson);
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .featured-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.7);
+    margin-bottom: 24px;
+  }
+
+  .featured-link {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .featured-link:hover {
+    color: var(--crimson-light);
+  }
+
+  .cta-section {
+    background: var(--crimson);
+    padding: 100px 80px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin-bottom: 40px;
+  }
+
+  .cta-section h2 em {
+    font-style: italic;
+    color: var(--crimson);
+  }
+
+  .cta-section p {
+    font-size: 16px;
+    color: rgba(10, 10, 10, 0.5);
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    background: var(--crimson);
+    color: white;
+    padding: 18px 50px;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease;
+  }
+
+  .cta-button:hover { background: var(--crimson-light); }
+
+  footer {
+    background: var(--cream);
+    padding: 80px 80px 40px;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .footer-logo-icon { width: 108px; height: 108px; }
+
+  .footer-brand h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    letter-spacing: 8px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .footer-brand p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(10, 10, 10, 0.6);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .footer-brand .footer-desc {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.7);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .footer-section h4 {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-section ul li a {
+    font-size: 13px;
+    color: rgba(10, 10, 10, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section ul li a:hover { color: var(--crimson); }
+
+  .footer-bottom {
+    padding-top: 40px;
+    border-top: 1px solid rgba(139, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(10, 10, 10, 0.5);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1024px) {
+    .cities-grid { grid-template-columns: repeat(3, 1fr); }
+    .featured-cities { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .hero h1 { font-size: 56px; }
+    .cities-section, .cta-section { padding: 80px 20px; }
+    .cities-grid { grid-template-columns: repeat(2, 1fr); }
+    .cta-section h2 { font-size: 48px; }
+    .footer-content { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="kcblogo.svg" alt="Keychain Photobooth Logo" class="nav-logo-icon">
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="layouts.html">Layouts</a>
+    <a href="backdrops.html">Backdrops</a>
+    <a href="cities.html">Cities</a>
+    <a href="blog.html">Blog</a>
+    <a href="faq.html">FAQ</a>
+    <div class="nav-ctas">
+      <a href="mailto:support@keychainphotobooth.ca" class="nav-cta">Book Now</a>
+      <a href="tel:+17059707860" class="nav-cta nav-cta-secondary">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Serving Ontario<br>& <em>Beyond</em></h1>
+  <p class="hero-subtitle">
+    At Keychain Photobooth, we proudly provide premium photo booth rentals across Ontario, bringing fun and memories to every event. Our services extend to all major Ontario cities and surrounding regions.
+  </p>
+</section>
+
+<section class="cities-section">
+  <div class="section-intro">
+    <h2>Major Cities <em>We Serve</em></h2>
+    <p>
+      From Toronto to Thunder Bay, we bring our premium photobooth experiences to communities across Ontario. 
+      Whether it's a wedding, corporate event, birthday, or gala, we deliver high-quality prints, digital sharing, and memories that last a lifetime.
+    </p>
+  </div>
+
+  <div class="featured-cities">
+    <div class="featured-card">
+      <div class="featured-icon"></div>
+      <h3 class="featured-title">Toronto & GTA</h3>
+      <p class="featured-desc">
+        Serving Toronto, Mississauga, Brampton, Markham, Vaughan, Richmond Hill, Oakville, Burlington, and all GTA communities with premium photobooth experiences.
+      </p>
+      <a href="contact.html" class="featured-link">Book Now →</a>
+    </div>
+
+    <div class="featured-card">
+      <div class="featured-icon"></div>
+      <h3 class="featured-title">Ottawa Region</h3>
+      <p class="featured-desc">
+        Premium photobooth services for Ottawa, Gatineau, Kanata, Orleans, and surrounding areas. Perfect for government events, weddings, and celebrations.
+      </p>
+      <a href="contact.html" class="featured-link">Book Now →</a>
+    </div>
+
+    <div class="featured-card">
+      <div class="featured-icon"></div>
+      <h3 class="featured-title">Hamilton & Region</h3>
+      <p class="featured-desc">
+        Serving Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, and the Niagara region with unforgettable photobooth experiences.
+      </p>
+      <a href="contact.html" class="featured-link">Book Now →</a>
+    </div>
+  </div>
+
+  <div class="section-intro">
+    <h2>All Ontario <em>Cities</em></h2>
+  </div>
+
+  <div class="cities-grid">
+    <a href="cities/toronto.html" class="city-card">
+      <h3 class="city-name">Toronto</h3>
+      <p class="city-region">GTA</p>
+    </a>
+    <a href="cities/mississauga.html" class="city-card">
+      <h3 class="city-name">Mississauga</h3>
+      <p class="city-region">GTA</p>
+    </a>
+    <a href="cities/brampton.html" class="city-card">
+      <h3 class="city-name">Brampton</h3>
+      <p class="city-region">GTA</p>
+    </a>
+    <a href="cities/markham.html" class="city-card">
+      <h3 class="city-name">Markham</h3>
+      <p class="city-region">GTA</p>
+    </a>
+    <a href="cities/vaughan.html" class="city-card">
+      <h3 class="city-name">Vaughan</h3>
+      <p class="city-region">GTA</p>
+    </a>
+    <a href="cities/richmond-hill.html" class="city-card">
+      <h3 class="city-name">Richmond Hill</h3>
+      <p class="city-region">GTA</p>
+    </a>
+    <a href="cities/oakville.html" class="city-card">
+      <h3 class="city-name">Oakville</h3>
+      <p class="city-region">GTA</p>
+    </a>
+    <a href="cities/burlington.html" class="city-card">
+      <h3 class="city-name">Burlington</h3>
+      <p class="city-region">Halton</p>
+    </a>
+    <a href="cities/hamilton.html" class="city-card">
+      <h3 class="city-name">Hamilton</h3>
+      <p class="city-region">Hamilton</p>
+    </a>
+    <a href="cities/kitchener.html" class="city-card">
+      <h3 class="city-name">Kitchener</h3>
+      <p class="city-region">Waterloo</p>
+    </a>
+    <a href="cities/waterloo.html" class="city-card">
+      <h3 class="city-name">Waterloo</h3>
+      <p class="city-region">Waterloo</p>
+    </a>
+    <a href="cities/cambridge.html" class="city-card">
+      <h3 class="city-name">Cambridge</h3>
+      <p class="city-region">Waterloo</p>
+    </a>
+    <a href="cities/guelph.html" class="city-card">
+      <h3 class="city-name">Guelph</h3>
+      <p class="city-region">Wellington</p>
+    </a>
+    <a href="cities/london.html" class="city-card">
+      <h3 class="city-name">London</h3>
+      <p class="city-region">Middlesex</p>
+    </a>
+    <a href="cities/windsor.html" class="city-card">
+      <h3 class="city-name">Windsor</h3>
+      <p class="city-region">Essex</p>
+    </a>
+    <a href="cities/ottawa.html" class="city-card">
+      <h3 class="city-name">Ottawa</h3>
+      <p class="city-region">Ottawa</p>
+    </a>
+    <a href="cities/kingston.html" class="city-card">
+      <h3 class="city-name">Kingston</h3>
+      <p class="city-region">Frontenac</p>
+    </a>
+    <a href="cities/barrie.html" class="city-card">
+      <h3 class="city-name">Barrie</h3>
+      <p class="city-region">Simcoe</p>
+    </a>
+    <a href="cities/oshawa.html" class="city-card">
+      <h3 class="city-name">Oshawa</h3>
+      <p class="city-region">Durham</p>
+    </a>
+    <a href="cities/whitby.html" class="city-card">
+      <h3 class="city-name">Whitby</h3>
+      <p class="city-region">Durham</p>
+    </a>
+    <a href="cities/ajax.html" class="city-card">
+      <h3 class="city-name">Ajax</h3>
+      <p class="city-region">Durham</p>
+    </a>
+    <a href="cities/pickering.html" class="city-card">
+      <h3 class="city-name">Pickering</h3>
+      <p class="city-region">Durham</p>
+    </a>
+    <a href="cities/st-catharines.html" class="city-card">
+      <h3 class="city-name">St. Catharines</h3>
+      <p class="city-region">Niagara</p>
+    </a>
+    <a href="cities/niagara-falls.html" class="city-card">
+      <h3 class="city-name">Niagara Falls</h3>
+      <p class="city-region">Niagara</p>
+    </a>
+    <a href="cities/welland.html" class="city-card">
+      <h3 class="city-name">Welland</h3>
+      <p class="city-region">Niagara</p>
+    </a>
+    <a href="cities/peterborough.html" class="city-card">
+      <h3 class="city-name">Peterborough</h3>
+      <p class="city-region">Peterborough</p>
+    </a>
+    <a href="cities/sarnia.html" class="city-card">
+      <h3 class="city-name">Sarnia</h3>
+      <p class="city-region">Lambton</p>
+    </a>
+    <a href="cities/brantford.html" class="city-card">
+      <h3 class="city-name">Brantford</h3>
+      <p class="city-region">Brant</p>
+    </a>
+    <a href="cities/woodstock.html" class="city-card">
+      <h3 class="city-name">Woodstock</h3>
+      <p class="city-region">Oxford</p>
+    </a>
+    <a href="cities/st-thomas.html" class="city-card">
+      <h3 class="city-name">St. Thomas</h3>
+      <p class="city-region">Elgin</p>
+    </a>
+    <a href="cities/stratford.html" class="city-card">
+      <h3 class="city-name">Stratford</h3>
+      <p class="city-region">Perth</p>
+    </a>
+    <a href="cities/orillia.html" class="city-card">
+      <h3 class="city-name">Orillia</h3>
+      <p class="city-region">Simcoe</p>
+    </a>
+    <a href="cities/owen-sound.html" class="city-card">
+      <h3 class="city-name">Owen Sound</h3>
+      <p class="city-region">Grey</p>
+    </a>
+    <a href="cities/belleville.html" class="city-card">
+      <h3 class="city-name">Belleville</h3>
+      <p class="city-region">Hastings</p>
+    </a>
+    <a href="cities/cornwall.html" class="city-card">
+      <h3 class="city-name">Cornwall</h3>
+      <p class="city-region">Stormont</p>
+    </a>
+    <a href="cities/north-bay.html" class="city-card">
+      <h3 class="city-name">North Bay</h3>
+      <p class="city-region">Nipissing</p>
+    </a>
+    <a href="cities/greater-sudbury.html" class="city-card">
+      <h3 class="city-name">Sudbury</h3>
+      <p class="city-region">Sudbury</p>
+    </a>
+    <a href="cities/sault-ste-marie.html" class="city-card">
+      <h3 class="city-name">Sault Ste. Marie</h3>
+      <p class="city-region">Algoma</p>
+    </a>
+    <a href="cities/thunder-bay.html" class="city-card">
+      <h3 class="city-name">Thunder Bay</h3>
+      <p class="city-region">Thunder Bay</p>
+    </a>
+    <a href="cities/timmins.html" class="city-card">
+      <h3 class="city-name">Timmins</h3>
+      <p class="city-region">Cochrane</p>
+    </a>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Don't see your city?<br><em>We travel!</em></h2>
+  <p>
+    We serve all of Ontario and can travel beyond for destination events. Contact us for a custom quote for your location.
+  </p>
+  <a href="contact.html" class="cta-button">Get a Quote</a>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="kcblogo.svg" alt="Keychain Photobooth" class="footer-logo-icon" >
+      </div>
+      <p class="footer-desc">Creating unforgettable memories through premium photobooth experiences.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services/open-air-photobooth.html">Open-Air Booth</a></li>
+        <li><a href="services.html">All Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cities.html">Cities</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:support@keychainphotobooth.ca">support@keychainphotobooth.ca</a></li>
+        <li><a href="tel:+1 7059707860">+1 7059707860</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Keychain Photobooth. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

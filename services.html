@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services | Keychain Photobooth</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B0000;
+    --crimson-light: #A50000;
+    --cream: #FAFAF8;
+    --off-white: #F5F3EF;
+    --black: #0A0A0A;
+    --gold: #C9A84C;
+    --pearl: #F0EDE8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(250, 250, 248, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+    padding: 2.5px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon { width: 120px; height: 120px; flex-shrink: 0; }
+
+  .nav-logo-text { display: none; }
+
+  .nav-logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 6px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .nav-logo-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: rgba(139, 0, 0, 0.5);
+    margin-top: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--crimson); }
+
+  .nav-cta {
+    background: var(--crimson);
+    color: white !important;
+    padding: 12px 30px;
+    border: none;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .nav-cta:hover { background: var(--crimson-light); }
+
+  .nav-ctas {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .nav-cta {
+    background: var(--crimson);
+    color: white !important;
+    padding: 12px 24px;
+    border: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: var(--crimson-light);
+  }
+
+  .nav-cta-secondary {
+    background: transparent;
+    color: var(--crimson) !important;
+    border: 1px solid var(--crimson);
+  }
+
+  .nav-cta-secondary:hover {
+    background: var(--crimson);
+    color: white !important;
+  }
+
+
+  /* Hero */
+  .hero {
+    margin-top: 80px;
+    background: var(--crimson);
+    padding: 120px 80px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+
+  .hero-badge {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 12px 30px;
+    font-size: 9px;
+    letter-spacing: 6px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 40px;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 em { font-style: italic; color: white;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Services Grid */
+  .services-section {
+    background: var(--off-white);
+    padding: 140px 80px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2px;
+  }
+
+  .service-card {
+    background: white;
+    padding: 60px 50px;
+    border: 1px solid rgba(139, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: var(--crimson);
+    transition: height 0.3s ease;
+  }
+
+  .service-card:hover::before {
+    height: 100%;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(139, 0, 0, 0.1);
+  }
+
+  .service-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: rgba(139, 0, 0, 0.15);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .service-icon {
+    font-size: 56px;
+    margin-bottom: 24px;
+  }
+
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--crimson);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.6);
+    margin-bottom: 24px;
+  }
+
+  .service-features {
+    list-style: none;
+    margin-top: 24px;
+  }
+
+  .service-features li {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(139, 0, 0, 0.6);
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.05);
+  }
+
+  .service-features li:last-child {
+    border-bottom: none;
+  }
+
+  .service-link {
+    background: var(--crimson);
+    color: white;
+    padding: 14px 32px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background 0.3s ease;
+    margin-top: 16px;
+  }
+
+  .service-link:hover { background: var(--crimson-light); }
+
+  /* Footer */
+  footer {
+    background: var(--cream);
+    padding: 80px 80px 40px;
+    border-top: 1px solid rgba(139, 0, 0, 0.1);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .footer-logo-icon { width: 108px; height: 108px; }
+
+  .footer-brand h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    letter-spacing: 8px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  .footer-brand p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(10, 10, 10, 0.6);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .footer-brand .footer-desc {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.7);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .footer-section h4 {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-section ul li a {
+    font-size: 13px;
+    color: rgba(10, 10, 10, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section ul li a:hover { color: var(--crimson); }
+
+  .footer-bottom {
+    padding-top: 40px;
+    border-top: 1px solid rgba(139, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(10, 10, 10, 0.5);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .hero h1 { font-size: 56px; }
+    .services-section { padding: 80px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="kcblogo.svg" alt="Keychain Photobooth Logo" class="nav-logo-icon">
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="layouts.html">Layouts</a>
+    <a href="backdrops.html">Backdrops</a>
+    <a href="cities.html">Cities</a>
+    <a href="blog.html">Blog</a>
+    <a href="faq.html">FAQ</a>
+    <div class="nav-ctas">
+      <a href="mailto:support@keychainphotobooth.ca" class="nav-cta">Book Now</a>
+      <a href="tel:+17059707860" class="nav-cta nav-cta-secondary">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Premium Photo Booth Experiences</div>
+    <h1>Our <em>Services</em></h1>
+    <p class="hero-subtitle">
+      From classic photobooths to cutting-edge 360° video experiences, we offer a complete range of premium photo booth services for every occasion.
+    </p>
+  </div>
+</section>
+
+<section class="services-section">
+  <div class="services-grid">
+    
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <h3 class="service-title">Unlimited Prints Photobooth</h3>
+      <p class="service-desc">
+        Ultimate customization with unlimited prints, backdrops, and props for your special event.
+      </p>
+      <ul class="service-features">
+        <li>Unlimited Prints</li>
+        <li>Custom Backdrops</li>
+        <li>Unlimited Props</li>
+        <li>4-Hour Rental</li>
+      </ul>
+      <a href="services/open-air-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <h3 class="service-title">Vintage Classic Photobooth</h3>
+      <p class="service-desc">
+        Nostalgic charm meets modern technology with authentic vintage styling and classic photo strips.
+      </p>
+      <ul class="service-features">
+        <li>Authentic Vintage Design</li>
+        <li>Classic Photo Strips</li>
+        <li>Vintage Props</li>
+        <li>Retro Experience</li>
+      </ul>
+      <a href="services/vintage-classic-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <h3 class="service-title">Magnet Photobooth</h3>
+      <p class="service-desc">
+        Create lasting memories with custom photo magnets that guests can take home and display.
+      </p>
+      <ul class="service-features">
+        <li>Instant Photo Magnets</li>
+        <li>High-Quality Backing</li>
+        <li>Custom Templates</li>
+        <li>Practical Keepsakes</li>
+      </ul>
+      <a href="services/magnet-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">04</div>
+      <h3 class="service-title">Keychain Photobooth</h3>
+      <p class="service-desc">
+        Portable memories! Create custom photo keychains that guests can carry everywhere.
+      </p>
+      <ul class="service-features">
+        <li>Photo Keychains</li>
+        <li>Durable Construction</li>
+        <li>Custom Shapes</li>
+        <li>Portable Memories</li>
+      </ul>
+      <a href="services/keychain-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">05</div>
+      <h3 class="service-title">Sportscard Photobooth</h3>
+      <p class="service-desc">
+        Create custom trading cards featuring your guests! Perfect for sports events and themed parties.
+      </p>
+      <ul class="service-features">
+        <li>Custom Trading Cards</li>
+        <li>Sports Templates</li>
+        <li>Personalized Stats</li>
+        <li>Championship Feel</li>
+      </ul>
+      <a href="services/sportscard-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">06</div>
+      <h3 class="service-title">Corporate PhotoBooth</h3>
+      <p class="service-desc">
+        Professional branding and networking opportunities with custom corporate photo experiences.
+      </p>
+      <ul class="service-features">
+        <li>Corporate Branding</li>
+        <li>Professional Backgrounds</li>
+        <li>LinkedIn Photos</li>
+        <li>Networking Features</li>
+      </ul>
+      <a href="services/corporate-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">07</div>
+      <h3 class="service-title">Brand Activations</h3>
+      <p class="service-desc">
+        Custom branded experiences that amplify your brand message and create shareable social content.
+      </p>
+      <ul class="service-features">
+        <li>Full Brand Customization</li>
+        <li>Social Media Integration</li>
+        <li>Analytics</li>
+        <li>Marketing Power</li>
+      </ul>
+      <a href="services/brand-activations.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">08</div>
+      <h3 class="service-title">Black and White Photobooth</h3>
+      <p class="service-desc">
+        Timeless elegance with classic black and white photography for sophisticated events.
+      </p>
+      <ul class="service-features">
+        <li>Classic B&W Photos</li>
+        <li>Professional Processing</li>
+        <li>Elegant Poses</li>
+        <li>Timeless Quality</li>
+      </ul>
+      <a href="services/black-white-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">09</div>
+      <h3 class="service-title">Portrait Studio Photobooth</h3>
+      <p class="service-desc">
+        Professional studio-quality portraits with controlled lighting and expert posing.
+      </p>
+      <ul class="service-features">
+        <li>Studio Lighting</li>
+        <li>Professional Backdrops</li>
+        <li>Expert Posing</li>
+        <li>Magazine Quality</li>
+      </ul>
+      <a href="services/portrait-studio-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">10</div>
+      <h3 class="service-title">InstaBooth Photobooth</h3>
+      <p class="service-desc">
+        Social media-ready photos with instant sharing, filters, and viral content creation.
+      </p>
+      <ul class="service-features">
+        <li>Instagram Ready</li>
+        <li>Trending Filters</li>
+        <li>Instant Sharing</li>
+        <li>Viral Templates</li>
+      </ul>
+      <a href="services/instabooth-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">11</div>
+      <h3 class="service-title">360° Photo Booth</h3>
+      <p class="service-desc">
+        Create viral-ready 360° videos with slow motion effects and professional lighting.
+      </p>
+      <ul class="service-features">
+        <li>360° Videos</li>
+        <li>Slow Motion</li>
+        <li>LED Lighting</li>
+        <li>Music Sync</li>
+      </ul>
+      <a href="services/360-photobooth.html" class="service-link">Discover More</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="kcblogo.svg" alt="Keychain Photobooth" class="footer-logo-icon" >
+      </div>
+      <p class="footer-desc">
+        Creating unforgettable memories through premium photobooth experiences.
+      </p>
+    </div>
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services/open-air-photobooth.html">Open-Air Booth</a></li>
+        <li><a href="services/keychain-photobooth.html">Keychain Booth</a></li>
+        <li><a href="services/360-photobooth.html">360° Video</a></li>
+        <li><a href="services.html">All Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cities.html">Cities</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:support@keychainphotobooth.ca">support@keychainphotobooth.ca</a></li>
+        <li><a href="tel:+1 7059707860">+1 7059707860</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Keychain Photobooth. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

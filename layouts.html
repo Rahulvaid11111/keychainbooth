@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Booth Layouts | Keychain Photobooth</title>
+<meta name="description" content="Choose from our collection of professionally designed photo layouts and templates for weddings, corporate events, and parties. Custom designs available.">
+<link rel="canonical" href="https://keychainphotobooth.ca/layouts.html">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B0000;
+    --crimson-light: #A50000;
+    --cream: #FAFAF8;
+    --off-white: #F5F3EF;
+    --black: #0A0A0A;
+    --gold: #C9A84C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(250, 250, 248, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+    padding: 2.5px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon { width: 120px; height: 120px; }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--crimson); }
+
+  .nav-cta {
+    background: var(--crimson);
+    color: white !important;
+    padding: 12px 30px;
+    border: none;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover { background: var(--crimson-light); }
+
+  .nav-ctas {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .nav-cta {
+    background: var(--crimson);
+    color: white !important;
+    padding: 12px 24px;
+    border: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: var(--crimson-light);
+  }
+
+  .nav-cta-secondary {
+    background: transparent;
+    color: var(--crimson) !important;
+    border: 1px solid var(--crimson);
+  }
+
+  .nav-cta-secondary:hover {
+    background: var(--crimson);
+    color: white !important;
+  }
+
+
+  .hero {
+    margin-top: 125px;
+    background: var(--crimson);
+    padding: 120px 80px 80px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 em { font-style: italic; color: white;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section {
+    padding: 100px 80px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--crimson);
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .section-title em { font-style: italic; }
+
+  .section-subtitle {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.6);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .layouts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .layout-card {
+    background: white;
+    border: 1px solid rgba(139, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .layout-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(139, 0, 0, 0.12);
+    border-color: var(--crimson);
+  }
+
+  .layout-image {
+    width: 100%;
+    height: 280px;
+    border-bottom: 3px solid var(--crimson);
+    position: relative;
+    overflow: hidden;
+    background: white;
+  }
+
+  .layout-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .layout-content {
+    padding: 32px;
+  }
+
+  .layout-category {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .layout-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--black);
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .layout-cta {
+    display: inline-block;
+    background: var(--crimson);
+    color: white;
+    padding: 12px 28px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .layout-cta:hover {
+    background: var(--crimson-light);
+  }
+
+  .custom-design-section {
+    background: var(--crimson);
+    padding: 100px 80px;
+  }
+
+  .custom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .custom-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--crimson);
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .custom-content h2 em { font-style: italic; }
+
+  .custom-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+  }
+
+  .custom-buttons {
+    display: flex;
+    gap: 20px;
+  }
+
+  .custom-btn {
+    display: inline-block;
+    padding: 16px 36px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .custom-btn-primary {
+    background: white;
+    color: var(--crimson);
+  }
+
+  .custom-btn-primary:hover {
+    background: var(--cream);
+  }
+
+  .custom-btn-secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .custom-btn-secondary:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .quality-section {
+    background: var(--off-white);
+    padding: 100px 80px;
+  }
+
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .quality-card {
+    text-align: center;
+  }
+
+  .quality-icon {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 2px solid var(--crimson);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--crimson);
+    letter-spacing: 1px;
+  }
+
+  .quality-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--crimson);
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .quality-desc {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.6);
+  }
+
+  footer {
+    background: var(--cream);
+    padding: 80px 80px 40px;
+    border-top: 1px solid rgba(139, 0, 0, 0.1);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .footer-logo-icon { width: 108px; height: 108px; }
+
+  .footer-brand h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    letter-spacing: 8px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .footer-desc {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.7);
+    margin-top: 20px;
+  }
+
+  .footer-section h4 {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 12px;
+  }
+
+  .footer-section ul li a {
+    font-size: 13px;
+    color: rgba(10, 10, 10, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section ul li a:hover {
+    color: var(--crimson-light);
+  }
+
+  .footer-bottom {
+    padding-top: 40px;
+    border-top: 1px solid rgba(139, 0, 0, 0.1);
+    text-align: center;
+    font-size: 10px;
+    color: rgba(10, 10, 10, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1024px) {
+    .quality-grid { grid-template-columns: repeat(2, 1fr); }
+    .custom-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 2.5px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 80px 20px 60px; }
+    .hero h1 { font-size: 56px; }
+    .section { padding: 80px 20px; }
+    .section-title { font-size: 48px; }
+    .layouts-grid { grid-template-columns: 1fr; }
+    .quality-grid { grid-template-columns: 1fr; }
+    .custom-design-section { padding: 80px 20px; }
+    .custom-content h2 { font-size: 40px; }
+    .custom-buttons { flex-direction: column; }
+    .footer-content { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="kcblogo.svg" alt="Keychain Photobooth Logo" class="nav-logo-icon">
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="layouts.html">Layouts</a>
+    <a href="backdrops.html">Backdrops</a>
+    <a href="cities.html">Cities</a>
+    <a href="blog.html">Blog</a>
+    <a href="faq.html">FAQ</a>
+    <div class="nav-ctas">
+      <a href="mailto:support@keychainphotobooth.ca" class="nav-cta">Book Now</a>
+      <a href="tel:+17059707860" class="nav-cta nav-cta-secondary">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Photo Booth <em>Layouts</em></h1>
+  <p class="hero-subtitle">
+    Choose from our collection of professionally designed photo layouts and templates for weddings, corporate events, and parties across Ontario
+  </p>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-eyebrow">Single Horizontal Layouts</div>
+    <h2 class="section-title">Popular <em>Designs</em></h2>
+    <p class="section-subtitle">
+      Single photo horizontal layouts perfect for any event
+    </p>
+  </div>
+
+  <div class="layouts-grid">
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_Airballoon.png" alt="Air Balloon Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Birthday</div>
+        <h3 class="layout-name">Air Balloon</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_Beauty PBPI 2.png" alt="Beauty PBPI 2 Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Beauty</div>
+        <h3 class="layout-name">Beauty PBPI 2</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_Beauty PBPI 3.png" alt="Beauty PBPI 3 Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Beauty</div>
+        <h3 class="layout-name">Beauty PBPI 3</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_Beauty PBPI4.png" alt="Beauty PBPI 4 Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Beauty</div>
+        <h3 class="layout-name">Beauty PBPI 4</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_Birthday_Glitter.png" alt="Birthday Glitter Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Birthday</div>
+        <h3 class="layout-name">Birthday Glitter</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_MMB_PBPI_2.png" alt="MMB PBPI 2 Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Modern</div>
+        <h3 class="layout-name">MMB PBPI 2</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_MMB_PBPI_4.png" alt="MMB PBPI 4 Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Modern</div>
+        <h3 class="layout-name">MMB PBPI 4</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_Retro_PBPI.png" alt="Retro PBPI Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Retro</div>
+        <h3 class="layout-name">Retro PBPI</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_Retro_PBPI 3.png" alt="Retro PBPI 3 Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Retro</div>
+        <h3 class="layout-name">Retro PBPI 3</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+
+    <div class="layout-card">
+      <div class="layout-image">
+        <img src="layoutskcb/1H_Wedding_Flowers_Gray.png" alt="Wedding Flowers Gray Layout">
+      </div>
+      <div class="layout-content">
+        <div class="layout-category">Wedding</div>
+        <h3 class="layout-name">Wedding Flowers Gray</h3>
+        <a href="contact.html" class="layout-cta">Select Layout</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="custom-design-section">
+  <div class="custom-grid">
+    <div class="custom-content">
+      <h2>Need a <em>Custom Design?</em></h2>
+      <p>
+        Our design team can create completely custom photo layouts that perfectly match your event theme and branding. From concept to final design, we'll work with you every step of the way.
+      </p>
+      <div class="custom-buttons">
+        <a href="contact.html" class="custom-btn custom-btn-primary">Request Custom Design</a>
+        <a href="contact.html" class="custom-btn custom-btn-secondary">Contact Designer</a>
+      </div>
+    </div>
+    <div class="custom-visual">
+      <!-- Placeholder for custom design visual -->
+    </div>
+  </div>
+</section>
+
+<section class="quality-section">
+  <div class="section-header">
+    <div class="section-eyebrow">Premium Quality</div>
+    <h2 class="section-title">Professional Print <em>Quality</em></h2>
+    <p class="section-subtitle">
+      All our printed photo layouts are designed with professional-grade specifications to ensure the highest quality output for your event keepsakes
+    </p>
+  </div>
+
+  <div class="quality-grid">
+    <div class="quality-card">
+      <div class="quality-icon">300 DPI</div>
+      <h3 class="quality-title">High Resolution</h3>
+      <p class="quality-desc">300 DPI print quality for crisp, clear photos that look professional</p>
+    </div>
+
+    <div class="quality-card">
+      <div class="quality-icon">PREMIUM</div>
+      <h3 class="quality-title">Premium Paper</h3>
+      <p class="quality-desc">Professional photo paper with glossy or matte finish options</p>
+    </div>
+
+    <div class="quality-card">
+      <div class="quality-icon">CUSTOM</div>
+      <h3 class="quality-title">Custom Branding</h3>
+      <p class="quality-desc">Your event details and branding seamlessly integrated into every print</p>
+    </div>
+
+    <div class="quality-card">
+      <div class="quality-icon">INSTANT</div>
+      <h3 class="quality-title">Instant Printing</h3>
+      <p class="quality-desc">Photos printed on-site within seconds of capture for immediate enjoyment</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="kcblogo.svg" alt="Keychain Photobooth" class="footer-logo-icon">
+      </div>
+      <p class="footer-desc">Creating unforgettable memories through premium photobooth experiences.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services/open-air-photobooth.html">Open-Air Booth</a></li>
+        <li><a href="services/360-photo-booth.html">360° Booth</a></li>
+        <li><a href="services.html">All Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cities.html">Cities</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:support@keychainphotobooth.ca">support@keychainphotobooth.ca</a></li>
+        <li><a href="tel:+1 7059707860">+1 7059707860</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Keychain Photobooth. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

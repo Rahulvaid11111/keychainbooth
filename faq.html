@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ - Frequently Asked Questions | Keychain Photobooth</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B0000;
+    --crimson-light: #A50000;
+    --cream: #FAFAF8;
+    --off-white: #F5F3EF;
+    --black: #0A0A0A;
+    --gold: #C9A84C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(250, 250, 248, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+    padding: 2.5px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon { width: 120px; height: 120px; }
+
+  .nav-logo-text { display: none; }
+
+  .nav-logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    letter-spacing: 6px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .nav-logo-sub {
+    font-size: 8px;
+    letter-spacing: 4px;
+    color: rgba(139, 0, 0, 0.5);
+    margin-top: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover { color: var(--crimson); }
+
+  .nav-cta {
+    background: var(--crimson);
+    color: white !important;
+    padding: 12px 30px;
+    border: none;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover { background: var(--crimson-light); }
+
+  .nav-ctas {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .nav-cta {
+    background: var(--crimson);
+    color: white !important;
+    padding: 12px 24px;
+    border: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: var(--crimson-light);
+  }
+
+  .nav-cta-secondary {
+    background: transparent;
+    color: var(--crimson) !important;
+    border: 1px solid var(--crimson);
+  }
+
+  .nav-cta-secondary:hover {
+    background: var(--crimson);
+    color: white !important;
+  }
+
+
+  .hero {
+    margin-top: 80px;
+    background: var(--crimson);
+    padding: 120px 80px 80px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    margin-bottom: 32px;
+  }
+
+  .hero h1 em { font-style: italic; color: white;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .faq-section {
+    background: var(--cream);
+    padding: 100px 80px;
+  }
+
+  .faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: white;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--crimson);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    padding: 30px 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: var(--off-white);
+  }
+
+  .faq-question h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--crimson);
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .faq-icon {
+    font-size: 24px;
+    color: var(--crimson);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 40px 30px;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 40px 30px;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.7);
+  }
+
+  .faq-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  .category-card {
+    background: white;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(139, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(139, 0, 0, 0.1);
+  }
+
+  .category-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .category-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--crimson);
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .category-desc {
+    font-size: 13px;
+    color: rgba(10, 10, 10, 0.6);
+  }
+
+  footer {
+    background: var(--cream);
+    padding: 80px 80px 40px;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .footer-logo-icon { width: 108px; height: 108px; }
+
+  .footer-brand h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    letter-spacing: 8px;
+    color: var(--crimson);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .footer-brand p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(10, 10, 10, 0.6);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .footer-brand .footer-desc {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(10, 10, 10, 0.7);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .footer-section h4 {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--crimson);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-section ul li a {
+    font-size: 13px;
+    color: rgba(10, 10, 10, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section ul li a:hover { color: var(--crimson); }
+
+  .footer-bottom {
+    padding-top: 40px;
+    border-top: 1px solid rgba(139, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(10, 10, 10, 0.5);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .hero h1 { font-size: 56px; }
+    .faq-section { padding: 80px 20px; }
+    .faq-categories { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="kcblogo.svg" alt="Keychain Photobooth Logo" class="nav-logo-icon">
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="layouts.html">Layouts</a>
+    <a href="backdrops.html">Backdrops</a>
+    <a href="cities.html">Cities</a>
+    <a href="blog.html">Blog</a>
+    <a href="faq.html">FAQ</a>
+    <div class="nav-ctas">
+      <a href="mailto:support@keychainphotobooth.ca" class="nav-cta">Book Now</a>
+      <a href="tel:+17059707860" class="nav-cta nav-cta-secondary">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Frequently Asked <em>Questions</em></h1>
+  <p class="hero-subtitle">
+    Everything you need to know about our photobooth services, pricing, and booking process.
+  </p>
+</section>
+
+<section class="faq-section">
+  <div class="faq-categories">
+    <div class="category-card">
+      <div class="category-icon"></div>
+      <h3 class="category-title">Booking</h3>
+      <p class="category-desc">Questions about reservations and availability</p>
+    </div>
+    <div class="category-card">
+      <div class="category-icon"></div>
+      <h3 class="category-title">Pricing</h3>
+      <p class="category-desc">Package details and payment options</p>
+    </div>
+    <div class="category-card">
+      <div class="category-icon"></div>
+      <h3 class="category-title">Events</h3>
+      <p class="category-desc">Setup, operation, and event details</p>
+    </div>
+  </div>
+
+  <div class="faq-container">
+    
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>How far in advance should I book?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>We recommend booking at least 2-3 months in advance for weddings and major events, especially during peak season (May-October). However, we often have availability for last-minute bookings, so don't hesitate to reach out even if your event is coming up soon!</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>What's included in your packages?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>All our packages include unlimited photos, a professional on-site attendant, custom backdrops, fun props, digital copies of all photos, and complete setup/breakdown. Specific features vary by package and photobooth type. Check our Services page for detailed package information.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>How much space do you need?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Our standard photobooths require approximately 10ft x 10ft of space. The 360° booth needs about 12ft x 12ft. We can work with most venue layouts and will discuss specific space requirements during your consultation.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>Do you provide props and backdrops?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes! We provide a wide selection of fun props and can customize backdrops to match your event theme and colors. We can also incorporate your event logo, monogram, or custom designs at no extra charge.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>How long does setup take?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Setup typically takes 45-60 minutes. We arrive 3 hours before your event start time to ensure everything is ready and tested before your guests arrive. Breakdown takes about 30 minutes after your event ends.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>Can guests share photos on social media?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Absolutely! Our photobooths feature instant digital sharing via email, text, and social media. Guests can share their photos immediately, and you can even create a custom event hashtag for easy tracking.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>What are your payment terms?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>We require a 50% deposit to secure your booking, with the remaining balance due 7 days before your event. We accept credit cards, e-transfer, and cash. All major credit cards are accepted.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>What is your cancellation policy?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Cancellations made more than 60 days before the event receive a full refund minus a $100 processing fee. Cancellations within 60 days forfeit the deposit. We understand emergencies happen and will work with you on a case-by-case basis.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>Do you travel outside your service area?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes! We serve all of Ontario and can travel beyond for destination events. Travel fees apply for locations outside our standard service area. Contact us for a custom quote for your location.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>Are you insured?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, we carry comprehensive liability insurance and can provide certificates of insurance to your venue if required. We're fully licensed and insured for your peace of mind.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>Can we customize the photo templates?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Absolutely! We offer fully customizable photo templates that can include your names, event date, logos, graphics, and custom designs. Our design team will work with you to create the perfect template for your event.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+        <h3>What happens if there's a technical issue?</h3>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Our professional attendants are trained to handle any technical issues that may arise. We also bring backup equipment to every event to ensure uninterrupted service. In the unlikely event of a complete system failure, we offer a full refund.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="kcblogo.svg" alt="Keychain Photobooth" class="footer-logo-icon" >
+      </div>
+      <p class="footer-desc">Creating unforgettable memories through premium photobooth experiences.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services/open-air-photobooth.html">Open-Air Booth</a></li>
+        <li><a href="services.html">All Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cities.html">Cities</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:support@keychainphotobooth.ca">support@keychainphotobooth.ca</a></li>
+        <li><a href="tel:+1 7059707860">+1 7059707860</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Keychain Photobooth. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const wasActive = item.classList.contains('active');
+    
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+    
+    if (!wasActive) {
+      item.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
