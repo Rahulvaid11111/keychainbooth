@@ -118,6 +118,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
   }
 
   .nav-logo {
@@ -251,8 +252,9 @@
 
   @media (max-width: 768px) {
     .hamburger {
-      display: flex;
+      display: flex !important;
       order: 3;
+      margin-left: auto;
     }
 
     nav {
@@ -260,10 +262,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: nowrap;
     }
 
     .nav-logo {
       order: 1;
+      flex-shrink: 0;
     }
 
     .nav-logo-icon {
@@ -1369,11 +1373,6 @@
     </div>
   </div>
 </nav>
-
-<!-- HERO IMAGE SECTION -->
-<section class="hero-image">
-  <img src="homepage.png" alt="Keychain Photobooth">
-</section>
 
 <!-- HERO SECTION -->
 <section class="hero">
